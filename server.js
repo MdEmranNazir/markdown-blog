@@ -1,10 +1,20 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const ArticleRouter = require('./routes/articles');
 
 const app = express();
 
+//DB Connect
+mongoose.connect('mongodb://localhost/markdown-blog', {
+    useNewUrlParser: true, useUnifiedTopology: true
+});
+
 //view engine
 app.set('view engine');
+
+//Middleware
+app.use(express.urlencoded({ extended: false }));
+app.use('/articles', ArticleRouter);
 
 // Router
 app.get('/', (req, res) => {
@@ -21,9 +31,6 @@ app.get('/', (req, res) => {
     res.render('articles/index.ejs',{ articles: articles })
     
 });
-
-//Middleware
-app.use('/articles', ArticleRouter);
 
 // PORT
 const PORT = process.env.PORT || 5000;
