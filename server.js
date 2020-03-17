@@ -23,6 +23,7 @@ app.get('/', async (req, res) => {
     res.render('articles/index', { articles: articles })
 });
 
+// articleRouter
 app.use('/articles', articleRouter);
 
 // PORT
