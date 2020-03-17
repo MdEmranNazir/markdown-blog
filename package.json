@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "server.js",
-    "dev": "nodemon server.js"
+    "runDev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -19,9 +19,14 @@
   },
   "homepage": "https://github.com/MdEmranNazir/markdown-blog#readme",
   "dependencies": {
+    "dompurify": "^2.0.8",
     "ejs": "^3.0.1",
     "express": "^4.17.1",
-    "mongoose": "^5.9.4"
+    "jsdom": "^16.2.1",
+    "marked": "^0.8.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.4",
+    "slugify": "^1.4.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.2"
