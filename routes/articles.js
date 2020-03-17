@@ -19,19 +19,19 @@ router.get('/:slug', async (req, res) => {
   res.render('articles/show', { article: article })
 })
 
-// post
+// post data
 router.post('/', async (req, res, next) => {
   req.article = new Article()
   next()
 }, saveArticleAndRedirect('new'))
 
-// put
+// edite data
 router.put('/:id', async (req, res, next) => {
   req.article = await Article.findById(req.params.id)
   next()
 }, saveArticleAndRedirect('edit'))
 
-// delete
+// delete data
 router.delete('/:id', async (req, res) => {
   await Article.findByIdAndDelete(req.params.id)
   res.redirect('/')
